@@ -1,5 +1,5 @@
 Feature: Contacts page
-
+  @wip
   Scenario:Default page number
     Given the user is on the login page
     And the user enters the driver information
@@ -34,13 +34,16 @@ Feature: Contacts page
       | Marketing          |
       | Reports & Segments |
       | System             |
-
-
-  Scenario: login as a given user
+@wip
+Scenario Outline: login as a given user
     Given the user is on the login page
     When the user logs in using following credentials
-      | username  | user10      |
+      | username  | <username>  |
       | password  | UserUser123 |
-      | firstname | Brenden     |
-      | lastname  | Schneider   |
-    Then the user should be able to login
+      | firstname | <firstname> |
+      | lastname  | <lastname>  |
+  Then the user should be able to login
+
+    Examples:
+      | username | firstname | lastname  |
+      | user10   | Brenden   | Schneider |
